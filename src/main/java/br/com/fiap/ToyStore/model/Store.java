@@ -1,5 +1,6 @@
 package br.com.fiap.ToyStore.model;
 
+import br.com.fiap.ToyStore.dto.store.StorePostDto;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -31,6 +32,12 @@ public class Store {
         this.id = id;
         this.name = name;
         this.address = address;
+    }
+
+    public Store(StorePostDto json) {
+        this.name = json.name();
+        this.address = json.address();
+        this.toys = json.toys();
     }
 
     public Store(Long id, String name, String address, List<Toy> toys) {

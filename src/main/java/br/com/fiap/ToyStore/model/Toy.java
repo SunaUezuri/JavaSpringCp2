@@ -1,5 +1,6 @@
 package br.com.fiap.ToyStore.model;
 
+import br.com.fiap.ToyStore.dto.toy.ToyPostDto;
 import br.com.fiap.ToyStore.model.enums.Public;
 import br.com.fiap.ToyStore.model.enums.ToyType;
 import jakarta.persistence.*;
@@ -39,6 +40,15 @@ public class Toy {
     private List<Store> stores;
 
     public Toy() {}
+
+    public Toy(ToyPostDto json) {
+        this.name = json.name();
+        this.type = json.type();
+        this.classification = json.classification();
+        this.size = json.size();
+        this.price = json.price();
+        this.stores = json.stores();
+    }
 
     public Toy(Long id, String name, ToyType type, Public classification, double size, double price) {
         this.id = id;
