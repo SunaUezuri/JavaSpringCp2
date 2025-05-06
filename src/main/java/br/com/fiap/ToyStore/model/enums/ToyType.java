@@ -5,12 +5,14 @@ public enum ToyType {
     CARRINHO,
     BOLA,
     MASSINHA,
-    AVIÃO,
+    AVIAO,
     BARCO,
     BICICLETA,
-    PIÃO,
+    PIAO,
     VIDEOGAME,
     LEGO,
     FANTASIA,
-    ROBÔ;
+    ROBO,
+    CARTAS;
+
 }

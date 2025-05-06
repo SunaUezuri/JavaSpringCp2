@@ -33,7 +33,7 @@ public class Toy {
     @Column(name = "price_toy", nullable = false)
     private double price;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "TB_CP2_TOY_STORES",
     joinColumns = @JoinColumn(name = "toy_id"),
     inverseJoinColumns = @JoinColumn(name = "store_id"))
