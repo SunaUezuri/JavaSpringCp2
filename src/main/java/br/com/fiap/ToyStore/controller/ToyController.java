@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,5 +65,19 @@ public class ToyController {
                 .stream()
                 .map(ToyGetDto::new)
                 .toList();
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<ToyGetDto> update(@PathVariable Long id, @RequestBody @Valid ToyPostDto dto) {
+        ToyGetDto updated = service.updateToy(id, dto);
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteToy(id);
+        return ResponseEntity.noContent().build();
     }
 }
